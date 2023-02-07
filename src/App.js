@@ -67,7 +67,7 @@ function App() {
       {/* </header> */}
       
       {/* Componente de listado de tareas */}
-      {/* <TaskListComponent></TaskListComponent> */}
+      <TaskListComponent></TaskListComponent>
 
       {/* Gestion de eventos de hijo a padre */}
       {/* <Father></Father> */}
@@ -77,8 +77,9 @@ function App() {
 
       {/* Ejemplos de renderizados condicional */}
       {/* <OptionalRender></OptionalRender> */}
-
-      <ColorBox></ColorBox>
+      
+      {/* Ejercicio de cudrado cambia color con el mouse */}
+      {/* <ColorBox></ColorBox> */}
     </div>
   );
 }

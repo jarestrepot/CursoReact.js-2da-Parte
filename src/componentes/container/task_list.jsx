@@ -21,7 +21,9 @@ const TaskListComponent = () => {
 
     useEffect(() => {
         console.log('Tasks State has been modified');
-        setCargando(false);
+        setTimeout(() => {
+            setCargando(false);
+        }, 3000);
         return () => {
             console.log('TasksList component is going to unmount...');
         };
@@ -56,8 +58,50 @@ const TaskListComponent = () => {
         tempTask.push(task);
         //Cambiamos el estado del componente
         setTasks(tempTask);
-
     }
+
+    const Table = () =>{
+        return (
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Priority</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {/* TODO: Iterar sobre una lista de tareas */}
+                    { tareas.map((task, index) =>{
+                        return(
+                            <TaskComponent 
+                                key={ index } 
+                                task={ task } 
+                                complete={ completeTask } 
+                                deleTask={ deleteTask }>
+                            </TaskComponent>
+                        )
+                    })}
+                    {/* TODO: Aplicar un for/map para renderizar una lista de tareas */}
+                </tbody>
+            </table>
+        )
+    }
+    let taskTable;
+
+    // taskTable.lengh > 0 ? <Table></Table>: <h3>No tienes tareas pendientes</h3>
+    if(tareas.length > 0){ 
+        taskTable = <Table></Table>
+    }else{
+        taskTable = (
+            <div>
+                <h3 className=" font-monospace">No tienes tareas pendientes</h3>
+                <p className=" bi-clock-history">Por favor crea una nueva tarea</p>
+            </div>
+        )
+    }
+
     return (
         <div>
             <div className="col-12">   
@@ -68,37 +112,15 @@ const TaskListComponent = () => {
                             Your Task:
                         </h5>
                     </div>
-
-                {/* Card body (contenido) */}
-                <div className="card-body" data-mdb-perfect-scrollbar='true' style={{position: 'relative', height: '500px'}}>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th scope="col">Title</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Priority</th>
-                                <th scope="col">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {/* TODO: Iterar sobre una lista de tareas */}
-                            { tareas.map((task, index) =>{
-                                return(
-                                    <TaskComponent 
-                                        key={ index } 
-                                        task={ task } 
-                                        complete={ completeTask } 
-                                        deleTask={ deleteTask }>
-                                    </TaskComponent>
-                                )
-                            })}
-                            {/* TODO: Aplicar un for/map para renderizar una lista de tareas */}
-                        </tbody>
-                    </table>
-                </div>
+                    {/* Card body (contenido) */}
+                    <div className="card-body" data-mdb-perfect-scrollbar='true' style={{position: 'relative', height: '500px'}}>
+                        {/* Si la aplicación esta cargando que dura 2 segundos en pasar a false */}
+                        { cargando ? ( <span className="loading"><p>LOADING..</p></span> )  : taskTable }
+                        {/* { <Table></Table> } */}
+                    </div>
                 </div>
             </div>
-            <TaskForm add={ addTask }></TaskForm>
+            <TaskForm add={ addTask } length={ tareas.length }></TaskForm>
         </div>
     );
 };

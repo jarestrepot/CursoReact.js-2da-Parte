@@ -1,3 +1,28 @@
 .task-action{
     cursor: pointer;
 }
+.task-completed {
+    color: gray;
+    text-decoration: line-through;
+}
+
+.task-pending {
+    font-weight: bold;
+    color: tomato;
+}
+.style-cap {
+    color: rgb(220, 57, 11);
+    background-color: rgb(0, 0, 0.2);
+}
+.loading {
+    
+    // background-color:rgb(220, 57, 11);
+    display:inline-block;
+    width: 100px;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50% ;
+    border-style: 5px solid #0000 ;
+    
+}

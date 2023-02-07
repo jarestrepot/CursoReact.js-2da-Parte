@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+
+//modelos 
 import { Task } from '../../models/task.class';
+import { LEVELS } from "../../models/levels.enum";
+
 //IMportamos la hoja de estilo de task
 import '../../SCSS/task.scss';
-import { LEVELS } from "../../models/levels.enum";
 
 
 
@@ -67,7 +70,7 @@ const TaskComponent = ( { task, complete, deleTask } ) => {
     
     return (
         
-        <tr className="fw-normal">
+        <tr className={ task.completed ? 'fw-normal task-completed' : ' fw-normal task-pending' }>
             <th>
                 <span className="ms-2"> { task.name }</span>
             </th>
