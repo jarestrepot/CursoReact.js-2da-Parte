@@ -7,10 +7,10 @@ class ClockClase extends Component {
         // Estado privado del component
         this.state = {
         // Se genera una fecha como estado inicial del componente
-        fecha: new Date(),
-        edad: 0,
-        nombre: 'Martín',
-        apellidos: 'San José'
+            fecha: new Date(),
+            edad: 0,
+            nombre: 'Martín',
+            apellidos: 'San José'
         };
     }
     componentDidMount(){

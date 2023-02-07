@@ -16,6 +16,8 @@ import ClockClase from './componentes/ejercicios/ejemploClaseClock';
 import ClockFuncion from './componentes/ejercicios/clock'
 import Father from './componentes/container/father';
 import Lista  from './componentes/ejercicios/Lista';
+import OptionalRender from './componentes/puros/optionalRender';
+import ColorBox from './componentes/ejercicios/Cuadrado';
 
 function App() {
 
@@ -65,13 +67,18 @@ function App() {
       {/* </header> */}
       
       {/* Componente de listado de tareas */}
-      <TaskListComponent></TaskListComponent>
+      {/* <TaskListComponent></TaskListComponent> */}
 
       {/* Gestion de eventos de hijo a padre */}
       {/* <Father></Father> */}
 
       {/* Ejercicio de Lista contacto */}
       {/* <Lista></Lista> */}
+
+      {/* Ejemplos de renderizados condicional */}
+      {/* <OptionalRender></OptionalRender> */}
+
+      <ColorBox></ColorBox>
     </div>
   );
 }
