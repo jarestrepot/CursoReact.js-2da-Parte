@@ -23,7 +23,7 @@ const TaskListComponent = () => {
         console.log('Tasks State has been modified');
         setTimeout(() => {
             setCargando(false);
-        }, 3000);
+        }, 2500);
         return () => {
             console.log('TasksList component is going to unmount...');
         };
@@ -59,7 +59,7 @@ const TaskListComponent = () => {
         //Cambiamos el estado del componente
         setTasks(tempTask);
     }
-
+    //Componente tabla
     const Table = () =>{
         return (
             <table>
@@ -88,6 +88,8 @@ const TaskListComponent = () => {
             </table>
         )
     }
+    //Fin componente tabla
+
     let taskTable;
 
     // taskTable.lengh > 0 ? <Table></Table>: <h3>No tienes tareas pendientes</h3>
@@ -120,7 +122,8 @@ const TaskListComponent = () => {
                     </div>
                 </div>
             </div>
-            <TaskForm add={ addTask } length={ tareas.length }></TaskForm>
+            {cargando ? (<span className="loading" style={{  width: '100%' }}><p>LOADING..</p></span>) : <TaskForm add={ addTask } length={ tareas.length }></TaskForm> }
+            {/* <TaskForm add={ addTask } length={ tareas.length }></TaskForm> */}
         </div>
     );
 };
