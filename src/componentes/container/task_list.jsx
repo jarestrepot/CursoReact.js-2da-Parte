@@ -122,8 +122,8 @@ const TaskListComponent = () => {
                     </div>
                 </div>
             </div>
-            {cargando ? (<span className="loading" style={{  width: '100%' }}><p>LOADING..</p></span>) : <TaskForm add={ addTask } length={ tareas.length }></TaskForm> }
-            {/* <TaskForm add={ addTask } length={ tareas.length }></TaskForm> */}
+            {/* Mientras la tabla cargue no se podra añadir nuevas tareas */}
+            { cargando ? (<span className="loading" style={{  width: '100%' }}><p>LOADING..</p></span>) : <TaskForm add={ addTask } length={ tareas.length }></TaskForm> }
         </div>
     );
 };
