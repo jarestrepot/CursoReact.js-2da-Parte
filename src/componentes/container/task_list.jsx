@@ -105,7 +105,7 @@ const TaskListComponent = () => {
     }
 
     return (
-        <div>
+        <div className=' container-fluid'>
             <div className="col-12">   
                 <div className="card">
                 {/* Card header  (title) */}
